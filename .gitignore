@@ -1,0 +1,4 @@
+.zig-cache
+
+src/data/*
+!src/data/.gitkeep

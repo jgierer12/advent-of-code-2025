@@ -1,0 +1,12 @@
+.{
+    .name = .advent_of_code_2025,
+    .version = "0.0.0",
+    .fingerprint = 0xe67df0675f85b8f6, // Changing this has security and trust implications.
+    .minimum_zig_version = "0.15.2",
+    .dependencies = .{},
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}
