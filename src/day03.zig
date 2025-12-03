@@ -35,23 +35,23 @@ pub fn main() !void {
                 }
 
                 if (d > line.len - joltageLen + j) {
-                    // if the index of the digit in the line is higher
-                    // than the joltage digit we're currently checking:
-                    // then we can't change it, otherwise there won't be
-                    // enough digits left in the line for subsequent digits
+                    // remaining digits in the line are less than the
+                    // remaining joltage digits:
+                    // then we can't change the current joltage digit,
+                    // otherwise there won't be enough digits left in the line
+                    // for subsequent digits
                     continue;
                 }
 
                 if (joltageChar.* == null or digitChar > joltageChar.*.?) {
-                    // if one of the following conditions is true, then we
-                    // change the joltage digit to the line digit:
-                    // 1. the joltage digit is null, either because we're at
-                    //    the start of the line, or a previous digit was
-                    //    changed
+                    // change the joltage digit to the line digit if either:
+                    // 1. we haven't saved anything for the current digit yet,
+                    //    either because we're at the start of the line, or
+                    //    a previous digit was changed
                     // 2. the line digit is greater than the digit we've
                     //    saved
-                    //    (comparing as chars rather than ints should be fine
-                    //    here)
+                    // NOTE: comparing as chars rather than ints here, which
+                    // should be fine since input is guaranteed to be numbers
                     joltageChar.* = digitChar;
                     alreadyChanged = true;
                 }
