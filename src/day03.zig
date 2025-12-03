@@ -1,6 +1,7 @@
 const std = @import("std");
 const print = std.debug.print;
 
+const joltageLen = 12; // 2 for part one, 12 for part two
 const data = @embedFile("data/day03.txt");
 // const data =
 //     \\987654321111111
@@ -13,7 +14,6 @@ fn charToInt(char: u8) !u8 {
     return try std.fmt.parseInt(u8, &[_]u8{char}, 10);
 }
 
-const joltageLen = 12;
 pub fn main() !void {
     var lines = std.mem.splitScalar(u8, data, '\n');
 
