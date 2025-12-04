@@ -21,7 +21,7 @@ const cols = std.mem.indexOfScalar(u8, data, '\n').?;
 // calculate index when moving from index i by dx and dy
 // eg. dx = 1 dy = -1 is north-east
 // returns null if result is out of bounds
-fn adjectentIndex(i: usize, dx: i2, dy: i2) ?usize {
+fn adjacentIndex(i: usize, dx: i2, dy: i2) ?usize {
     const signedI: isize = @intCast(i);
     const signedCols: isize = @intCast(cols);
     const result = signedI + (dy * (signedCols + 1)) + dx;
@@ -44,14 +44,14 @@ fn removeRolls(map: [data.len]u8, acc: u16) u16 {
         }
 
         const adjacent = [_]?usize{
-            adjectentIndex(i, -1, -1), // nw
-            adjectentIndex(i, 0, -1), // n
-            adjectentIndex(i, 1, -1), // ne
-            adjectentIndex(i, -1, 0), // w
-            adjectentIndex(i, 1, 0), // e
-            adjectentIndex(i, -1, 1), // sw
-            adjectentIndex(i, 0, 1), // s
-            adjectentIndex(i, 1, 1), //se
+            adjacentIndex(i, -1, -1), // nw
+            adjacentIndex(i, 0, -1), // n
+            adjacentIndex(i, 1, -1), // ne
+            adjacentIndex(i, -1, 0), // w
+            adjacentIndex(i, 1, 0), // e
+            adjacentIndex(i, -1, 1), // sw
+            adjacentIndex(i, 0, 1), // s
+            adjacentIndex(i, 1, 1), //se
         };
 
         var occupied: u4 = 0;
